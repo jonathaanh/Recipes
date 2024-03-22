@@ -10,7 +10,7 @@ import Foundation
 // NetworkManager is responsible for handling network requests to fetch meal data.
 class NetworkManager {
     
-    // Fetches a list of meals of a specific category (e.g., Dessert) from the API.
+    // Fetches a list of meals of a specific category from the API.
     func fetchMeals(completion: @escaping (MealList?) -> Void) {
         // URL string pointing to the meal database API for a specific category.
         let urlString = "https://themealdb.com/api/json/v1/1/filter.php?c=Dessert"

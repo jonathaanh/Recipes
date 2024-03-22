@@ -32,15 +32,11 @@ final class RecipesTests: XCTestCase {
     // Implement similar tests for different scenarios...
     
     func testFetchMealsSuccess() throws {
-        // Mock URLSession to return a predefined JSON response that represents a successful meal list fetch.
-        // Configure the NetworkManager to use this mocked session.
-        // Expectation to wait for the async operation to complete.
         let expectation = XCTestExpectation(description: "Fetch meals succeeds and returns a meal list.")
         
         // Call fetchMeals and verify the result is not nil and contains expected data.
         networkManager.fetchMeals { mealList in
             XCTAssertNotNil(mealList)
-            // Additional assertions can check for specific meals in the list, counts, or other properties.
             expectation.fulfill()
         }
         
@@ -52,7 +48,6 @@ final class RecipesTests: XCTestCase {
         
         networkManager.fetchMealDetail(id: "52772") { mealDetail in
             XCTAssertNotNil(mealDetail)
-            // Assertions to check specific details of the meal, like its name, ingredients, etc.
             expectation.fulfill()
         }
         

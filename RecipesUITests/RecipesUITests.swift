@@ -46,7 +46,7 @@ final class RecipesUITests: XCTestCase {
         // Assert the "Desserts" title is present
         XCTAssertTrue(app.navigationBars["Desserts"].exists, "The title 'Desserts' is not present in the navigation bar.")
 
-        // Wait for the meals to load. Adjust the timeout as necessary.
+        // Wait for the meals to load.
         let firstMealCell = app.cells.firstMatch
         let expectation = XCTNSPredicateExpectation(predicate: NSPredicate(format: "exists == true"), object: firstMealCell)
         
@@ -56,7 +56,6 @@ final class RecipesUITests: XCTestCase {
                 firstMealCell.tap()
                 
                 // Verify navigation has occurred by checking for a specific UI element in `MealDetailView`.
-                // This could be the "Instructions" text or any unique element that confirms the view has changed.
                 let instructionsTextExists = app.staticTexts["Instructions"].waitForExistence(timeout: 5)
                 XCTAssertTrue(instructionsTextExists, "Instructions text does not exist or was not found after navigating to MealDetailView.")
                 
